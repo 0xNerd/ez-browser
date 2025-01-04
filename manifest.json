@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Eliza Browser Extension",
+  "version": "1.0",
+  "options_page": "options/options.html",
+  "background": {
+    "service_worker": "dist/background/background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [],
+  "web_accessible_resources": [{
+    "resources": [
+      "dist/popup/process.js",
+      "dist/popup/popup.js",
+      "dist/popup/style.css",
+      "dist/*.wasm"
+    ],
+    "matches": ["<all_urls>"]
+  }],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  }
+} 

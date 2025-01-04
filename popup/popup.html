@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html class="dark">
+<head>
+  <title>Eliza in your browser</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    .settings-button {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 0.375rem;
+      transition: all 0.2s;
+    }
+    .settings-button:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  </style>
+  <link rel="stylesheet" href="/dist/popup/style.css">
+  <script type="module" src="/dist/popup/process.js"></script>
+</head>
+<body class="bg-gray-900">
+  <div class="container p-4 min-w-[300px] relative">
+    <button id="settingsButton" class="settings-button text-white hover:text-green-500">
+      <i class="fa-solid fa-gear"></i>
+    </button>
+    <h2 class="text-xl font-bold mb-4 text-white">Eliza</h2>
+    <textarea 
+      id="userInput" 
+      class="w-full h-24 p-2 rounded mb-4 bg-gray-800 text-white border-gray-700 focus:border-green-500 focus:ring-green-500" 
+      placeholder="Enter your query..."></textarea>
+    <button 
+      id="sendButton" 
+      class="w-full bg-green-600 text-white p-2 rounded hover:bg-green-700">Send</button>
+    <div 
+      id="response" 
+      class="mt-4 p-2 border border-gray-700 rounded min-h-[50px] bg-gray-800 text-white"></div>
+  </div>
+  <script type="module" src="/dist/popup/popup.js"></script>
+</body>
+</html> 

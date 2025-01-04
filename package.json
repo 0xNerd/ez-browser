@@ -1,0 +1,32 @@
+{
+  "name": "llm-agent-extension",
+  "version": "1.0.0",
+  "description": "Chrome extension for LLM agent",
+  "scripts": {
+    "build": "rm -rf dist && npm run build:js && npm run build:css && npm run copy-wasm",
+    "build:js": "esbuild popup/*.ts options/*.ts background/*.ts shims/*.ts --bundle --outdir=dist --format=iife --platform=browser --define:import.meta.url='\"/\"' --define:process.env.NODE_ENV='\"production\"' --define:process.platform='\"browser\"' --alias:dotenv=./shims/index.js --alias:path=./shims/index.js --alias:'node:path'=./shims/index.js --alias:fs=./shims/index.js --alias:'fs/promises'=./shims/index.js --alias:buffer=./shims/index.js --alias:https=./shims/index.js --alias:events=./shims/index.js --alias:assert=./shims/index.js --alias:stream=./shims/index.js --alias:crypto=./shims/index.js --alias:zlib=./shims/index.js --alias:url=./shims/index.js --alias:'node:url'=./shims/index.js --external:@anush008/tokenizers --external:onnxruntime-node --tsconfig=tsconfig.json",
+    "build:css": "tailwindcss -i ./popup/style.css -o ./dist/popup/style.css",
+    "copy-wasm": "cp node_modules/sql.js/dist/sql-wasm.wasm dist/",
+    "watch": "esbuild popup/*.ts shims/*.ts --bundle --outdir=dist/popup --format=esm --platform=browser --external:fs --external:path --external:buffer --external:dotenv --external:fs/promises --watch"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.242",
+    "@types/node": "^20.0.0",
+    "@types/sql.js": "^1.4.9",
+    "autoprefixer": "^10.4.20",
+    "canvas": "^2.11.2",
+    "esbuild": "^0.20.0",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "@elizaos/core": "0.1.7-alpha.1",
+    "@ineedtendies/elizaos-core": "^0.1.5",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "sql.js": "^1.12.0",
+    "url": "^0.11.4",
+    "uuid": "^11.0.3"
+  }
+}

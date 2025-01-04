@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html class="dark">
+<head>
+  <title>Eliza Settings</title>
+  <link rel="stylesheet" href="../dist/popup/style.css">
+</head>
+<body class="bg-gray-900">
+  <div class="container p-8 max-w-md mx-auto">
+    <h2 class="text-2xl font-bold mb-6 text-white">Settings</h2>
+    <div class="mb-4">
+      <label class="block text-white mb-2" for="apiKey">API Key</label>
+      <input 
+        type="password" 
+        id="apiKey" 
+        class="w-full p-2 rounded bg-gray-800 text-white border border-gray-700 focus:border-green-500 focus:ring-green-500"
+        placeholder="Enter your API key">
+    </div>
+    <button 
+      id="saveButton"
+      class="w-full bg-green-600 text-white p-2 rounded hover:bg-green-700">
+      Save
+    </button>
+    <div id="status" class="mt-4 text-center text-white"></div>
+  </div>
+  <script type="module" src="../dist/options/options.js"></script>
+</body>
+</html> 
