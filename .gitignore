@@ -1,5 +1,4 @@
 node_modules
 package-lock.json
 sql-wasm.wasm
-dist/dist/
-dist/
+
